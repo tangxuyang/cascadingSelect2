@@ -1,0 +1,16 @@
+{
+	"items":[
+		{
+			"id":1,
+			"text":"shanghai"
+		},
+		{
+			"id":2,
+			"text":"zhengzhou"
+		},
+		{
+			"id":3,
+			"text":"xuzhou"
+		}
+	]
+}

@@ -1,0 +1,16 @@
+{
+	"items":[
+		{
+			"id":1,
+			"text":"china"
+		},
+		{
+			"id":2,
+			"text":"us"
+		},
+		{
+			"id":3,
+			"text":"usa"
+		}
+	]
+}

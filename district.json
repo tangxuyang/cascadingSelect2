@@ -1,0 +1,16 @@
+{
+	"items":[
+		{
+			"id":1,
+			"text":"pudong"
+		},
+		{
+			"id":2,
+			"text":"minhang"
+		},
+		{
+			"id":3,
+			"text":"长宁"
+		}
+	]
+}

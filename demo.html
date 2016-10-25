@@ -1,0 +1,228 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>lesson 101</title>
+		<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.2.4.js"></script>
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/i18n/zh-CN.js"></script>
+		<script src="cascadingSelect2.js"></script>
+		<style type="text/css">
+    select {
+        width: 200px;
+    }
+    </style>
+
+	</head>
+	<body>
+		<h2>远程数据</h2>
+		<hr/>
+		国家：<select id="countryId"></select><br/><br/>
+		城市：<select id="cityId"></select><br/><br/>
+		区域：<select id="districtId"></select><br/><br/>
+		板块：<select id="townId"></select><br/><br/>
+		小区：<select id="estateId"></select>
+		<h2>本地数据</h2>
+		<hr/>
+		国家：<select id="countryId2"></select><br/><br/>
+		城市：<select id="cityId2"></select><br/><br/>
+		区域：<select id="districtId2"></select><br/><br/>
+		板块：<select id="townId2"></select><br/><br/>
+		小区：<select id="estateId2"></select>
+
+		<h2>demo</h2>
+		<hr/>
+		年级：<select id="grade"></select><br/><br/>
+		班级：<select id="class"></select><br/><br/>
+
+	</body>
+	<script type="text/javascript">
+$(function() {
+    $.cascadingSelect2({
+        selects: [{
+            ele: '#countryId', //select元素，jQuery对象
+            url: 'country.json', //查询接口地址
+            paramName: 'country', //查询的参数
+            paramNameForNext: 'countryId', //查询的参数
+            value: null,
+            data:{
+            	name:"test",
+            	age:11
+            },
+            selected: function() {
+                console.log("country changed");
+            }, //选中触发的事件
+        }, {
+            ele: '#cityId', //select元素，jQuery对象
+            url: 'city.json', //查询接口地址
+            paramName: 'city', //查询的参数
+            paramNameForNext: 'cityId', //查询的参数
+            value: null,
+            data:{
+            	look:"sdf",
+            	isGood:true
+            },
+            selected: function() {
+                console.log("city changed");
+            }, //选中触发的事件
+        },{
+            ele: '#districtId', //select元素，jQuery对象
+            url: 'district.json', //查询接口地址
+            paramName: 'district', //查询的参数
+            paramNameForNext: 'districtId', //查询的参数
+            value: null,
+            selected: function() {
+                console.log("district changed");
+            }, //选中触发的事件
+        },{
+            ele: '#townId', //select元素，jQuery对象
+            url: 'town.json', //查询接口地址
+            paramName: 'town', //查询的参数
+            paramNameForNext: 'townId', //查询的参数
+            value: null,
+            selected: function() {
+                console.log("town changed");
+            }, //选中触发的事件
+        },{
+            ele: '#estateId', //select元素，jQuery对象
+            url: 'estate.json', //查询接口地址
+            paramName: 'estate', //查询的参数
+            value: null,
+            selected: function() {
+                console.log("city changed");
+            }, //选中触发的事件
+        }]
+    });
+
+    $.cascadingSelect2({
+        selects: [{
+            ele: '#countryId2', //select元素，jQuery对象
+            url: 'country.json', //查询接口地址
+            paramName: 'country', //查询的参数
+            paramNameForNext: 'countryId', //查询的参数
+            value: null,
+            data: {
+                name: "test",
+                age: 11
+            },
+            selected: function() {
+                console.log("country changed");
+            }, //选中触发的事件
+        }, {
+            ele: '#cityId2', //select元素，jQuery对象
+            url: 'city.json', //查询接口地址
+            paramName: 'city', //查询的参数
+            paramNameForNext: 'cityId', //查询的参数
+            value: null,
+            data: {
+                look: "sdf",
+                isGood: true
+            },
+            selected: function() {
+                console.log("city changed");
+            }, //选中触发的事件
+        }, {
+            ele: '#districtId2', //select元素，jQuery对象
+            url: 'district.json', //查询接口地址
+            paramName: 'district', //查询的参数
+            paramNameForNext: 'districtId', //查询的参数
+            value: null,
+            selected: function() {
+                console.log("district changed");
+            }, //选中触发的事件
+        }, {
+            ele: '#townId2', //select元素，jQuery对象
+            url: 'town.json', //查询接口地址
+            paramName: 'town', //查询的参数
+            paramNameForNext: 'townId', //查询的参数
+            value: null,
+            selected: function() {
+                console.log("town changed");
+            }, //选中触发的事件
+        }, {
+            ele: '#estateId2', //select元素，jQuery对象
+            url: 'estate.json', //查询接口地址
+            paramName: 'estate', //查询的参数
+            value: null,
+            selected: function() {
+                console.log("city changed");
+            }, //选中触发的事件
+        }],
+        data: [{
+            id: -1,
+            text: "--请选择--"
+        }, {
+            id: 1,
+            text: "china",
+            items: [{
+                id: -1,
+                text: "--请选择--"
+            }, {
+                id: 1,
+                text: "上海",
+                items: [{
+                    id: -1,
+                    text: "--请选择--"
+                }, {
+                    id: 1,
+                    text: "浦东",
+                    items: [{
+                        id: -1,
+                        text: "--请选择--"
+                    }, {
+                        id: 1,
+                        text: "花木",
+                        items: [{
+                            id: -1,
+                            text: "--请选择--"
+                        }, {
+                            id: 1,
+                            text: "我的小区"
+                        }]
+                    }]
+                }]
+            }]
+        }, {
+            id: 2,
+            text: "usa",
+            items: [{
+                id: 2,
+                text: "纽约",
+                items: [{
+                    id: 2,
+                    text: "纽约-1",
+                    items: [{
+                        id: 2,
+                        text: "纽约-1-1",
+                        items: [{
+                            id: 2,
+                            text: "你的小区1"
+                        },{
+                            id: 3,
+                            text: "你的小区2"
+                        },{
+                            id: 4,
+                            text: "你的小区3"
+                        },{
+                            id: 5,
+                            text: "你的小区4"
+                        }]
+                    }]
+                }]
+            }]
+        }]
+    });
+
+    $.cascadingSelect2({
+        selects: [{
+            ele: '#grade', //select元素，jQuery对象
+        }, {
+            ele: '#class', //select元素，jQuery对象
+        }],
+        data:[{id:1,text:"一年级",items:[{id:1,text:"一班"},{id:1,text:"二班"},{id:1,text:"三班"},{id:1,text:"四班"}]},{id:2,text:"二年级",items:[{id:1,text:"一班"},{id:1,text:"二班"},{id:1,text:"三班"}]},{id:3,text:"三年级",items:[{id:1,text:"一班"}]},{id:4,text:"四年级",items:[{id:1,text:"一班"},{id:1,text:"二班"}]},{id:5,text:"五年级",items:[{id:1,text:"一班"}]}]
+    });
+});
+</script>
+
+</html>
